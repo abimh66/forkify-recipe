@@ -2,6 +2,7 @@ import * as model from './model.js';
 import recipeView from './views/recipeView.js';
 import searchView from './views/searchView.js';
 import resultView from './views/resultView.js';
+import paginationView from './views/paginationView.js';
 
 // https://forkify-api.herokuapp.com/v2
 
@@ -39,16 +40,30 @@ const controlSearchResult = async function () {
     if (!model.state.search.results.length) throw new Error();
 
     // 3) Rendering Data
-    resultView.render(model.state.search.results);
+    resultView.render(model.searchResultPerPage());
     console.log(model.state.search.results);
+
+    // 4) Render Pagination
+    paginationView.render(model.state.search);
   } catch (err) {
     resultView.renderError();
   }
 };
 
+const controlPagination = function (goToPage) {
+  console.log('controlPagination');
+  // 1) Render Data
+  resultView.render(model.searchResultPerPage(goToPage));
+  console.log(model.state.search.results);
+
+  // 2) Render Pagination
+  paginationView.render(model.state.search);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
   searchView.addHandlerSearch(controlSearchResult);
+  paginationView.addHandlerClick(controlPagination);
   // model.loadSearchResult('pizza');
   // console.log(model.state.search.results);
 };
