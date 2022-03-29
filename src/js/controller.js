@@ -8,7 +8,7 @@ import paginationView from './views/paginationView.js';
 
 ///////////////////////////////////////
 
-if (module.hot) module.hot.accept();
+// if (module.hot) module.hot.accept();
 
 const controlRecipes = async function () {
   try {
@@ -60,11 +60,18 @@ const controlPagination = function (goToPage) {
   paginationView.render(model.state.search);
 };
 
+const controlServings = function (newServings) {
+  // Update data in model
+  model.updateServings(newServings);
+
+  // Update the UI
+  recipeView.render(model.state.recipe);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
   searchView.addHandlerSearch(controlSearchResult);
   paginationView.addHandlerClick(controlPagination);
-  // model.loadSearchResult('pizza');
-  // console.log(model.state.search.results);
+  recipeView.addHandlerUpdateServings(controlServings);
 };
 init();
