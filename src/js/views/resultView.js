@@ -9,16 +9,20 @@ class ResultView extends View {
     return this._data.map(data => this._generateMarkupPreview(data)).join('');
   }
 
-  _generateMarkupPreview(data) {
+  _generateMarkupPreview(result) {
+    const id = window.location.hash.slice(1);
+
     return `
     <li class="preview">
-        <a class="preview__link" href="#${data.id}">
+        <a class="preview__link ${
+          id === result.id ? 'preview__link--active' : ''
+        }" href="#${result.id}">
         <figure class="preview__fig">
-            <img src="${data.image}" alt="${data.title}" />
+            <img src="${result.image}" alt="${result.title}" />
         </figure>
         <div class="preview__data">
-            <h4 class="preview__title">${data.title}</h4>
-            <p class="preview__publisher">${data.publisher}</p>
+            <h4 class="preview__title">${result.title}</h4>
+            <p class="preview__publisher">${result.publisher}</p>
         </div>
         </a>
     </li>`;
