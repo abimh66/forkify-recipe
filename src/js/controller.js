@@ -3,6 +3,7 @@ import recipeView from './views/recipeView.js';
 import searchView from './views/searchView.js';
 import resultView from './views/resultView.js';
 import paginationView from './views/paginationView.js';
+import bookmarksView from './views/bookmarksView.js';
 
 // https://forkify-api.herokuapp.com/v2
 
@@ -19,6 +20,8 @@ const controlRecipes = async function () {
 
     // 0) Update resultView to mark selected recipe
     resultView.update(model.searchResultPerPage());
+    bookmarksView.update(model.state.bookmarks);
+
     // 1) Load Data
     await model.loadRecipe(id);
     // 2) Rendering Data
@@ -43,7 +46,6 @@ const controlSearchResult = async function () {
 
     // 3) Rendering Data
     resultView.render(model.searchResultPerPage());
-    console.log(model.state.search.results);
 
     // 4) Render Pagination
     paginationView.render(model.state.search);
@@ -67,14 +69,34 @@ const controlServings = function (newServings) {
   model.updateServings(newServings);
 
   // Update the UI
-  //recipeView.render(model.state.recipe);
   recipeView.update(model.state.recipe);
 };
 
+const controlAddBookmark = function () {
+  // 1) Add/remove bookmark
+  model.state.recipe.bookmarked
+    ? model.removeBookmark(model.state.recipe.id)
+    : model.addBookmark(model.state.recipe);
+
+  // 2) Update recipe view
+  recipeView.update(model.state.recipe);
+
+  // 3) Render bookmarks
+  bookmarksView.render(model.state.bookmarks);
+  // console.log(model.state.recipe);
+  // console.log(model.state.bookmarks);
+};
+
+const controlBookmark = function () {
+  bookmarksView.render(model.state.bookmarks);
+};
+
 const init = function () {
+  bookmarksView.addHandlerRender(controlBookmark);
   recipeView.addHandlerRender(controlRecipes);
+  recipeView.addHandlerUpdateServings(controlServings);
+  recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResult);
   paginationView.addHandlerClick(controlPagination);
-  recipeView.addHandlerUpdateServings(controlServings);
 };
 init();
