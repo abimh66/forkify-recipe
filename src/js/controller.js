@@ -4,6 +4,7 @@ import searchView from './views/searchView.js';
 import resultView from './views/resultView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
+import addRecipeView from './views/addRecipeView.js';
 
 // https://forkify-api.herokuapp.com/v2
 
@@ -91,6 +92,10 @@ const controlBookmark = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
+const controlAddRecipe = function (newRecipe) {
+  console.log(newRecipe);
+};
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmark);
   recipeView.addHandlerRender(controlRecipes);
@@ -98,5 +103,6 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResult);
   paginationView.addHandlerClick(controlPagination);
+  addRecipeView.addHandlerUpload(controlAddRecipe);
 };
 init();
