@@ -14,6 +14,6 @@
     "parcel": "^2.3.1"
   },
   "dependencies": {
-    "fractional": "^1.0.0"
+    "fraction.js": "^4.2.0"
   }
 }
