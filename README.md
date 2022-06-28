@@ -1,32 +1,33 @@
-# Food Order App
+# Forkify Recipe
 
-Project ini berdasarkan pada Udemy Course [React - The Complete Guide (incl Hooks, React Router, Redux)](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+Project ini berdasarkan pada Udemy Course [The Complete JavaScript Course 2022: From Zero to Expert!](https://www.udemy.com/course/the-complete-javascript-course/) oleh Jonas Schmedtmann
 
 ## Overview
 
 ### Penjelasan Project
 
-Pada project ini saya membangun sebuah aplikasi food order dengan fitur utama yaitu menambahkan item ke cart dan menampilkan item dalam cart. CSS/styling pada project ini disediakan oleh Udemy Course
-Fokus utama pada project ini adalah JavaScript dengan framework ReactJS
-Objektif pada project ini:
+Pada project ini saya membangun sebuah aplikasi Food Recipe berdasarkan data yang diambil dari [Forkify API](https://forkify-api.herokuapp.com/v2/). Semua content(image & logo) dan css styling disediakan oleh course, sementara untuk kode program JavaScript saya buat dengan mengikuti course. Fitur-fitur utama pada aplikasi ini:
 
-- Membuat berbagai component yang reuseable
-- Menerapkan berbagai hooks(useState, useReducer, useEffect, useContext, useRef)
+- Search food recipe berdasarkan nama
+- Menampilkan hasil search ke dalam sebuah halaman dengan pagination
+- Menampilkan detail resep makanan(food recipe)
+- Menampilkan detail resep makanan secara dinamis berdasarkan jumlah porsi
+- Menambahkan detail resep makanan ke bookmark
+- Menghapus detail makanan dari bookmark
+- Menampilkan bookmark
+- Menambahkan resep makanan secara manual
 
 ### Links
 
-- Solution URL: [Solution Code](https://github.com/abimh66/food-order-app)
-- Live Site URL: [Live Site](https://abimh66.github.io/food-order-app/)
+- Solution URL: [Solution Code](https://github.com/abimh66/forkify-recipe)
+- Live Site URL: [Live Site](https://forkify-app-abimh6.netlify.app/)
 
 ### Stack yang digunakan
 
 - Semantic HTML5 markup
-- [CSS Modules](https://github.com/css-modules/css-modules) - CSS Modules
-- ReactJS
-
-### Hal yang dipelajari
-
-Banyak hal yang dipelajari dari project ini terutama adalah framework ReactJS. Belajar menerapkan berbagai hooks(useState, useReducer, useEffect, useContext, useRef), state management dengan hooks useState, useReducer, dan useContext, belajar mengenai prinsip separation of concern di reactJs
+- CSS
+- JavaScript
+- [Parcel](https://parceljs.org/docs/) - web application bundler
 
 ## Author
 

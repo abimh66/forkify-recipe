@@ -1,20 +1,16 @@
 {
-  "homepage": "https://abimh66.github.io/forkify-recipe",
   "name": "forkify",
   "version": "1.0.0",
   "description": "recipe application",
   "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Abi Mas Hardianto",
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.3.1",
-    "gh-pages": "^4.0.0",
     "parcel": "^2.3.1"
   },
   "dependencies": {
